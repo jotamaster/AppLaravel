@@ -1,0 +1,122 @@
+.pageheader {
+    margin-bottom: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #d3d7db;
+    border-top: 1px solid #eee;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.pageheader h2 {
+    font-size: 28px;
+    color: #1D2939;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.pageheader .glyphicon,
+.pageheader .fa {
+    font-size: 24px;
+    margin-right: 5px;
+    padding: 6px 7px;
+    border: 2px solid #1D2939;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.pageheader .fa.fa-pencil {
+    padding: 6px 9px;
+}
+
+.pageheader .fa.fa-hand-o-up {
+    padding: 6px 9px 6px 7px;
+}
+
+.pageheader .fa-file-o {
+    padding: 6px 10px;
+}
+
+.pageheader .fa-user {
+    padding: 6px 10px;
+}
+
+.pageheader .fa-file-text {
+    padding: 6px 10px;
+}
+
+.pageheader .fa-map-marker {
+    padding: 6px 12px;
+}
+
+.pageheader .fa-dollar {
+    padding: 6px 12px;
+}
+
+.pageheader .fa-clock-o {
+    padding: 6px 8px;
+}
+
+.pageheader h2 span {
+    font-size: 13px;
+    text-transform: none;
+    color: #999;
+    font-style: italic;
+    vertical-align: middle;
+    letter-spacing: 0;
+}
+
+.pageheader h2 span::before {
+    content: '/';
+    margin: 0 10px 0 5px;
+    color: #ccc;
+}
+
+.pageheader .breadcrumb-wrapper {
+    position: absolute;
+    top: 23px;
+    right: 25px;
+}
+
+.pageheader .breadcrumb-wrapper .label {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.pageheader .breadcrumb {
+    background: none;
+    display: inline-block;
+    padding: 0;
+}
+
+.pageheader .breadcrumb li {
+    font-size: 12px;
+}
+
+.pageheader .breadcrumb li.active {
+    color: #333;
+}
+.pageheader h2 {
+        font-size: 18px;
+}
+
+.pageheader .glyphicon,
+.pageheader .fa {
+    font-size: 18px;
+}
+
+.pageheader h2 span {
+    font-size: 11px;
+}
+div >p{
+    margin-left: 50px;
+}
+.row>.col-md-3{
+    text-align: center;
+}
+.container>.row{
+    margin-bottom: 20px;
+}
