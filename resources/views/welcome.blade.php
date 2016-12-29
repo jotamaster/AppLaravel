@@ -16,9 +16,11 @@
 
         <!-- Styles -->
         <style>
+        @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Lobster|Josefin+Sans');
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                /*background-color: #fff;*/
+                background-image: url("img/fondo.png");
+                color: #595F6E;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -50,6 +52,8 @@
             }
 
             .title {
+
+                font-family: 'Josefin Slab', serif;
                 font-size: 40px;
             }
 

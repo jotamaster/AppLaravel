@@ -22,6 +22,7 @@ Route::get("search","DocumentoController@view");
 Route::get("users","UsersController@view");
 Route::get("admUser","AdminController@ViewAdmUser");
 Route::get('unidades/{id}','RecepcionController@getUnidad');
+Route::get('subirdoc','RecepcionController@view');
 Route::get('crudUnidades','UnidadesController@view');
 Route::get('crudDepartamentos','DepartamentosController@view');
 Route::get('createDepartamentos','DepartamentosController@create');

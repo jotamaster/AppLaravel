@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up Confirmation</title>
+    <title>Confirmacion de registro</title>
 </head>
 <body>
-    <h1>Thanks for signing up!</h1>
+    <h1>Gracias por registrarse!</h1>
 
     <p>
-        We just need you to <a href='{{ url("register/confirm/{$user->token}") }}'>confirm your email address</a> real quick!
+        Necesitamos que <a href='{{ url("register/confirm/{$user->token}") }}'>confirme su correo electronico</a> pinche aquí!
     </p>
 </body>
 </html>

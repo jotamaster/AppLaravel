@@ -87,7 +87,7 @@
 
                         </li>
                         <li class="dropdown">
-                            <a href="home" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-folder-open"></i>Subir documento<span class=""></span></a>
+                            <a href="subirdoc" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-folder-open"></i>Subir documento<span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
