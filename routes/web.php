@@ -23,14 +23,33 @@ Route::get("users","UsersController@view");
 Route::get("admUser","AdminController@ViewAdmUser");
 Route::get('unidades/{id}','RecepcionController@getUnidad');
 Route::get('subirdoc','RecepcionController@view');
+// RUTAS CRUD UNIDADES---------------------------------------------------
 Route::get('crudUnidades','UnidadesController@view');
+Route::get('createUnidades','UnidadesController@create');
+Route::post('crudUnidades', 'UnidadesController@store');
+Route::delete('crudUnidades/{id}','UnidadesController@destroy');
+Route::post('crudUnidades/edit/{id}', 'UnidadesController@edit');
+// ----------------------------------------------------------------------
+
+
+// RUTAS CRUD DEPARTAMENTOS----------------------------------------------
 Route::get('crudDepartamentos','DepartamentosController@view');
 Route::get('createDepartamentos','DepartamentosController@create');
 Route::post('crudDepartamentos', 'DepartamentosController@store');
+Route::delete('crudDepartamentos/{id}','DepartamentosController@destroy');
+Route::post('crudDepartamentos/edit/{id}', 'DepartamentosController@edit');
+Route::put('crudDepartamentos/{id}', 'DepartamentosController@update');
+// ----------------------------------------------------------------------
+
+
+
+
+
 Route::get('perfil','PerfilController@view');
 Route::post('perfil','PerfilController@updateProfile');
 Route::get('plan','AdminController@plan');
 Route::post('home/create', 'StorageController@save');
+
 
 
 

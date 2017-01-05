@@ -22,7 +22,7 @@
 <div class="col-md-12">
   <div class="col-md-4">
     <dic class="col-md-12">
-      <img src="{{ Auth::user()->pathImg }}" alt="profile image" class="img-thumbnail"style="width:250px">
+      <img src="{{ Auth::user()->usuImg}}" alt="profile image" class="img-thumbnail"style="width:250px">
     </dic>
 
   </div>
@@ -41,7 +41,9 @@
 	<button type='submit' class='btn btn-primary'>Actualizar imagen de perfil</button>
 </form>
   </div>
-
+  <div class="col-md-12">
+    <h3>{{ Auth::user()->name}}</h3>
+  </div>
 
 </div>
 

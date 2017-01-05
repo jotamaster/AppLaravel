@@ -19,13 +19,23 @@
                   {{ session('success') }}
               </div>
             @endif
-          <h4>tabla</h4><a href="/createDepartamentos" class="btn btn-default btn-lg active" role="button">Agregar</a>
+          <h3>Departamentos</h3>
+          <div class="col-md-3">
+
+          <a href="/createDepartamentos" class="btn btn-primary" role="button">Agregar Departamento</a>
+
+          </div>
+<br>
+<br>
+<br>
 
             <table class="table table-bordered">
+
     <thead>
       <tr>
-        <th>ID</th>
+
         <th>Nombre</th>
+        <th>Jefe</th>
         <th>Editar</th>
         <th>Eliminar</th>
       </tr>
@@ -33,10 +43,11 @@
     <tbody>
     @foreach($departamentos as $departamento)
       <tr>
-        <td>{{ $departamento->id }}</td>
+
         <td>{{ $departamento->nombre}}</td>
+        <td>d</td>
         <td>
-        <form class="deleteForm" method="POST" action="crud/edit/{{$departamento->id}}">
+        <form class="deleteForm" method="POST" action="crudDepartamentos/edit/{{$departamento->id}}">
 
       {{ csrf_field() }}
         <input class="btn btn-warning" type="submit" value="edit">
@@ -44,7 +55,7 @@
       </td>
 
         <td>
-        <form class="deleteForm" method="POST" action="crud/{{$departamento->id}}">
+        <form class="deleteForm" method="POST" action="crudDepartamentos/{{$departamento->id}}">
       {{method_field('DELETE')}}
       {{ csrf_field() }}
         <input class="btn btn-danger" type="submit" value="Eliminar">
@@ -58,5 +69,14 @@
 </div>
 
           </div>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+               $('.alert').delay(2000).fadeOut(400);
+               $('.deleteForm').on('submit',function(){
+                  return confirm("Estas seguro de borrar este registro?");
+               });
+            });
+          </script>
 
 @stop

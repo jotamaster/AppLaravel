@@ -12,20 +12,20 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="{{asset('css/wisard.css')}}" rel="stylesheet" type="text/css">
-    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-  <script src="js/wizard.js" type="text/javascript"></script>
-    <script src="js/fileinput.js" type="text/javascript"></script>
+    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/wisard.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css" />
+    <script src="{{asset('js/wizard.js')}}" type="text/javascript"></script>
+    <script src="{{asset('js/fileinput.js')}}" type="text/javascript"></script>
 
   @yield('head')
 
@@ -45,17 +45,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"> <i><img src="img/Logo.png" alt="IMGPuyehue" width="50px"></i>Municipalidad de Puyehue</a>
+                <a class="navbar-brand" href="index.html"> <i><img src="{{asset('img/Logo.png')}}" alt="IMGPuyehue" width="50px"></i>Municipalidad de Puyehue</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img  src="{{ Auth::user()->pathImg }}" alt="" style="width:30px; border-radius:10%; max-height:20px;"> {{ Auth::user()->name }}  <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img  src="{{ Auth::user()->usuImg }}" alt="" style="width:30px; border-radius:10%; max-height:20px;"> {{ Auth::user()->name }}  <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i>Perfil</a>
+                            <a href="{{ url('/perfil') }}"><i class="fa fa-fw fa-user"></i>Perfil</a>
                         </li>
                         <li>
                             <a href="{{ url('/logout') }}"
@@ -79,31 +79,31 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="active">
-                            <a href="index.html"><i class="glyphicon glyphicon-home"></i> Home</a>
+                            <a href="{{ url('/home') }}"><i class="glyphicon glyphicon-home"></i> Home</a>
                         </li>
 
                         <li class="dropdown">
-                            <a href="search" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-search"></i>Buscar documento<span class=""></span></a>
+                            <a href="{{ url('/search') }}" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-search"></i>Buscar documento<span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
-                            <a href="subirdoc" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-folder-open"></i>Subir documento<span class=""></span></a>
+                            <a href="{{ url('/subirdoc') }}" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-folder-open"></i>Subir documento<span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
-                            <a href="users" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-user"></i>Gestion de usuarios<span class=""></span></a>
+                            <a href="{{ url('/users') }}" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-user"></i>Gestion de usuarios<span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
-                            <a href="crudUnidades" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-cog"></i>Gestion de unidades <span class=""></span></a>
+                            <a href="{{ url('/crudUnidades') }}" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-cog"></i>Gestion de unidades <span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
-                            <a href="crudDepartamentos" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-cog"></i>Gestion de Dpto.<span class=""></span></a>
+                            <a href="{{ url('/crudDepartamentos') }}" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-cog"></i>Gestion de Dpto.<span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
-                            <a href="perfil" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-user"></i>Mi Perfil<span class=""></span></a>
+                            <a href="{{ url('/perfil') }}" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-user"></i>Mi Perfil<span class=""></span></a>
 
                         </li>
                         <li class="dropdown">
@@ -187,10 +187,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/moment-with-locales.js"></script>
-    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/moment-with-locales.js')}}"></script>
+    <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
 
 
 

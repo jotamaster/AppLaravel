@@ -31,10 +31,10 @@ return view('perfil');
         }
         else{
             $name = str_random(30) . '-' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move('pathImg', $name);
+            $request->file('image')->move('usuImg', $name);
             $user = new User;
             $user->where('email', '=', Auth::user()->email)
-                 ->update(['pathImg' => 'pathImg/'.$name]);
+                 ->update(['usuImg' => 'usuImg/'.$name]);
             return redirect('perfil')->with('status', 'Su imagen de perfil ha sido cambiada con éxito');
         }
     }

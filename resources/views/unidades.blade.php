@@ -19,8 +19,15 @@
                   {{ session('success') }}
               </div>
             @endif
-          <h4>tabla</h4><a href="/create" class="btn btn-default btn-lg active" role="button">Agregar</a>
+          <h3>Unidades</h3>
+          <div class="col-md-3">
 
+          <a href="/createUnidades" class="btn btn-primary" role="button">Agregar Unidad</a>
+
+          </div>
+<br>
+<br>
+<br>
             <table class="table table-bordered">
     <thead>
       <tr>
@@ -34,7 +41,7 @@
     @foreach($unidades as $unidad)
       <tr>
         <td>{{ $unidad->nombre }}</td>
-        <td>{{ $unidad->id_departamento}}</td>
+        <td>{{ $unidad->nombre_departamento}}</td>
         <td>
         <form class="deleteForm" method="POST" action="crud/edit/{{$unidad->id}}">
 
@@ -44,7 +51,7 @@
       </td>
 
         <td>
-        <form class="deleteForm" method="POST" action="crud/{{$unidad->id}}">
+        <form class="deleteForm" method="POST" action="crudUnidades/{{$unidad->id}}">
       {{method_field('DELETE')}}
       {{ csrf_field() }}
         <input class="btn btn-danger" type="submit" value="Eliminar">
@@ -58,6 +65,15 @@
 </div>
 
           </div>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+               $('.alert').delay(2000).fadeOut(400);
+               $('.deleteForm').on('submit',function(){
+                  return confirm("Estas seguro de borrar este registro?");
+               });
+            });
+          </script>
 
 
 @stop
