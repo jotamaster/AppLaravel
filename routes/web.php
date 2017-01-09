@@ -22,13 +22,23 @@ Route::get("search","DocumentoController@view");
 Route::get("users","UsersController@view");
 Route::get("admUser","AdminController@ViewAdmUser");
 Route::get('unidades/{id}','RecepcionController@getUnidad');
+
+
+// RUTAS SUBIR DOCUMENTOS------------------------------------------------
 Route::get('subirdoc','RecepcionController@view');
+Route::post('subirdoc','RecepcionController@store');
+
+
+// ----------------------------------------------------------------------
+
+
 // RUTAS CRUD UNIDADES---------------------------------------------------
 Route::get('crudUnidades','UnidadesController@view');
 Route::get('createUnidades','UnidadesController@create');
 Route::post('crudUnidades', 'UnidadesController@store');
 Route::delete('crudUnidades/{id}','UnidadesController@destroy');
 Route::post('crudUnidades/edit/{id}', 'UnidadesController@edit');
+Route::put('crudUnidades/{id}', 'UnidadesController@update');
 // ----------------------------------------------------------------------
 
 

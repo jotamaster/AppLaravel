@@ -14,7 +14,10 @@ class UnidadesController extends Controller
     public function view(){
 
 
-
+      $unidades = DB::table('unidades')
+            ->join('departamentos', 'unidades.id_departamento', '=', 'departamentos.id')
+            ->select('unidades.nombre', 'unidades.id', 'departamentos.nombre as nombre_departamento', 'departamentos.id as id_departamento')
+            ->get();
 
             return view('unidades',compact('unidades'));
 
@@ -54,8 +57,23 @@ class UnidadesController extends Controller
 
       public function edit($id) {
           $unidades = Unidad::find($id);
-          return view('editUnidad', ['unidad' => $unidades]);
+          return view('editUnidades', ['unidad' => $unidades]);
       }
+
+
+      public function update($id, Request $request) {
+    $nombre = request()->input('nombre');
+
+    $this->validate($request, [
+        'nombre' => 'required|max:40',
+
+    ]);
+    $unidad = Unidad::find($id);
+    $unidad->nombre = $nombre;
+    $unidad->save();
+    return redirect()->to('crudUnidades');
+  }
+
 
 
 

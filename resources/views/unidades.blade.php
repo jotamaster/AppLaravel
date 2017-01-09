@@ -43,10 +43,10 @@
         <td>{{ $unidad->nombre }}</td>
         <td>{{ $unidad->nombre_departamento}}</td>
         <td>
-        <form class="deleteForm" method="POST" action="crud/edit/{{$unidad->id}}">
+        <form class="deleteFom" method="POST" action="crudUnidades/edit/{{$unidad->id}}">
 
       {{ csrf_field() }}
-        <input class="btn btn-warning" type="submit" value="edit">
+        <input class="btn btn-warning" type="submit" name="edit" value="edit">
       </form>
       </td>
 

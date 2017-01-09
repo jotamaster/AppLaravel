@@ -44,48 +44,30 @@
   <div class="col-md-12">
     <table class="table">
       <thead>
+        @foreach($documentos as $documento)
         <tr>
         <th>Folio</th>
         <th>Recepción</th>
-        <th>Entrega</th>
-        <th>Estado</th>
-        <th>Días</th>
+        <th>Nombre</th>
+        <th>Tipo documento</th>
+        <th>Tipo Solicitante</th>
+        <th>Rut responsable</th>
+        <th>estado</th>
         <th>ver</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>D4562</td>
-          <td>12.09.2016</td>
-          <td>12.12.2012</td>
-          <td>En Espera</td>
-          <td>8</td>
+          <td>{{$documento->id}}</td>
+          <td>{{$documento->created_at}}</td>
+          <td>{{$documento->nombre}}</td>
+          <td>{{$documento->tipoDoc}}</td>
+          <td>{{$documento->tipoSolicitante}}</td>
+          <td>{{$documento->rut_responsable}}</td>
+          <td>{{$documento->estado}}</td>
           <td><button class="btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#miModal" ><span class="fa fa-fw fa-search"></span></button></td>
         </tr>
-        <tr>
-          <td>D4562</td>
-          <td>12.09.2016</td>
-          <td>12.12.2012</td>
-          <td>En Espera</td>
-          <td>8</td>
-          <td><button class="btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#miModal" ><span class="fa fa-fw fa-search"></span></button></td>
-        </tr>
-        <tr>
-          <td>D4562</td>
-          <td>12.09.2016</td>
-          <td>12.12.2012</td>
-          <td>En Espera</td>
-          <td>8</td>
-          <td><button class="btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#miModal" ><span class="fa fa-fw fa-search"></span></button></td>
-        </tr>
-        <tr>
-          <td>D4562</td>
-          <td>12.09.2016</td>
-          <td>12.12.2012</td>
-          <td>En Espera</td>
-          <td>8</td>
-          <td><button class="btn btn-primary" type="button" name="button" data-toggle="modal" data-target="#miModal" ><span class="fa fa-fw fa-search"></span></button></td>
-        </tr>
+    @endforeach
 
       </tbody>
     </table>
@@ -119,7 +101,7 @@
         </table>
       </div>
       <div class="modal-footer">
-        <button type="button" name="button"> chaitoo!</button>
+        <button class="btn btn-primary"type="button" name="button"> Salir</button>
       </div>
     </div>
   </div>

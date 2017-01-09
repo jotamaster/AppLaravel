@@ -30,7 +30,7 @@ class HomeController extends Controller
 
             $departamentos = Departamento::pluck('nombre','id');
             $unidades = Unidad::all();
-
+    
             return view('recepcion_buscar', compact('departamentos','unidades'));
           }
 
