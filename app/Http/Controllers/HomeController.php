@@ -7,6 +7,7 @@ use App\Departamento;
 use App\Unidad;
 use DB;
 use App\Quotation;
+use App\Documento;
 
 class HomeController extends Controller
 {
@@ -30,8 +31,9 @@ class HomeController extends Controller
 
             $departamentos = Departamento::pluck('nombre','id');
             $unidades = Unidad::all();
-    
-            return view('recepcion_buscar', compact('departamentos','unidades'));
+            $documentos = Documento::all();
+
+            return view('recepcion_buscar', compact('departamentos','unidades','documentos'));
           }
 
           public function getUnidad(Request $request, $id){

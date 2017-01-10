@@ -17,8 +17,9 @@ class RecepcionController extends Controller
 
       $departamentos = Departamento::pluck('nombre','id');
       $unidades = Unidad::all();
+      $documentos = Documento::all();
 
-      return view('createdoc', compact('departamentos','unidades'));
+      return view('createdoc', compact('departamentos','unidades','documentos'));
     }
 
     public function getUnidad(Request $request, $id){
@@ -37,7 +38,7 @@ class RecepcionController extends Controller
              'unidades'=> 'required',
              'unidades'=> 'required',
              'tipoSolicitante'=> 'required',
-             'rutResponsable'=> 'required|integer|Between:7,8',
+             'rutResponsable'=> 'required|integer',
              'nombreResposable'=> 'required',
              'Apellido'=> 'required',
              'telefono'=> 'required',
@@ -49,31 +50,47 @@ class RecepcionController extends Controller
 
           ]);
 
-
-          $documento = new Documento;
-              $documento->nombre = $request->nombreDocumento;
-              $documento->tipoDoc = $request->tipoDocumento;
-              $documento->id_unidad =$request->unidades;
-              $documento->asunto = $request->asunto;
-              $documento->tipoSolicitante = $request->tipoSolicitante;
-              $documento->rut_responsable = $request->rutResponsable;
-              $documento->save();
-
-          $responsable = new Responsable;
-          $responsable->rut = $request->rutResponsable;
-          $responsable->nombre = $request->nombreResposable;
-          $responsable->apellido = $request->Apellido;
-          $responsable->telefono = $request->telefono;
-          $responsable->direccion = $request->direccion;
-          $responsable->correo = $request->correo;
-          $responsable->save();
-  
+          $users = DB::table('responsables')->where('rut', '=', $request->rutResponsable)->get();
 
 
 
+try {
 
-          return redirect()->to('subirdoc')->with('success', 'Departamento creado exitosamente') ;
-      }
+  $documento = new Documento;
+      $documento->nombre = $request->nombreDocumento;
+      $documento->tipoDoc = $request->tipoDocumento;
+      $documento->id_unidad =$request->unidades;
+      $documento->asunto = $request->asunto;
+      $documento->tipoSolicitante = $request->tipoSolicitante;
+      $documento->rut_responsable = $request->rutResponsable;
+      $documento->save();
+
+  $responsable = new Responsable;
+  $responsable->rut = $request->rutResponsable;
+  $responsable->nombre = $request->nombreResposable;
+  $responsable->apellido = $request->Apellido;
+  $responsable->telefono = $request->telefono;
+  $responsable->direccion = $request->direccion;
+  $responsable->correo = $request->correo;
+  $responsable->save();
+  return redirect()->to('subirdoc')->with('success', 'Departamento creado exitosamente') ;
+
+}catch (\Illuminate\Database\QueryException $e){
+  $documento = new Documento;
+      $documento->nombre = $request->nombreDocumento;
+      $documento->tipoDoc = $request->tipoDocumento;
+      $documento->id_unidad =$request->unidades;
+      $documento->asunto = $request->asunto;
+      $documento->tipoSolicitante = $request->tipoSolicitante;
+      $documento->rut_responsable = $request->rutResponsable;
+      $documento->save();
+      return redirect()->to('subirdoc')->with('success', 'Departamento creado exitosamente') ;
+
+}
+
+
+
+}
 
 
 
