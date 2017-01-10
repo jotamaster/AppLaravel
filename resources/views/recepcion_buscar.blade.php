@@ -44,7 +44,7 @@
   <div class="col-md-12">
     <table class="table">
       <thead>
-        @foreach($documentos as $documento)
+
         <tr>
         <th>Folio</th>
         <th>Recepción</th>
@@ -57,6 +57,7 @@
         </tr>
       </thead>
       <tbody>
+          @foreach($documentos as $documento)
         <tr>
           <td>{{$documento->id}}</td>
           <td>{{$documento->created_at}}</td>
