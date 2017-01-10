@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Departamento;
 use App\Unidad;
 use DB;
@@ -73,7 +74,7 @@ try {
   $responsable->direccion = $request->direccion;
   $responsable->correo = $request->correo;
   $responsable->save();
-  return redirect()->to('subirdoc')->with('success', 'Departamento creado exitosamente') ;
+  return redirect()->to('subirdoc')->with('success', 'Documento creado exitosamente') ;
 
 }catch (\Illuminate\Database\QueryException $e){
   $documento = new Documento;
@@ -84,7 +85,7 @@ try {
       $documento->tipoSolicitante = $request->tipoSolicitante;
       $documento->rut_responsable = $request->rutResponsable;
       $documento->save();
-      return redirect()->to('subirdoc')->with('success', 'Departamento creado exitosamente') ;
+      return redirect()->to('subirdoc')->with('success', 'Documento creado exitosamente') ;
 
 }
 

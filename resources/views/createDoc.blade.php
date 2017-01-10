@@ -14,6 +14,12 @@
 @section('content')
 <div class="col-md-offset-1 col-md-10 box">
 
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
+
 
 <form method="POST" action="{{ url('subirdoc') }}" class="col-md-10 col-md-offset-1">
 	<h3>Documento</h3>
