@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administracion Turismo Puyehue</title>
+    <title>Ilustre Municipalidad de Puyehue</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap Core CSS -->
@@ -19,6 +19,7 @@
 
     <!-- Morris Charts CSS -->
     <link href="{{asset('css/plugins/morris.css')}}" rel="stylesheet">
+    <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -26,6 +27,7 @@
     <link href="{{asset('css/fileinput.css')}}" media="all" rel="stylesheet" type="text/css" />
     <script src="{{asset('js/wizard.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/fileinput.js')}}" type="text/javascript"></script>
+      <script src="{{asset('js/dropzone.js')}}" type="text/javascript"></script>
 
   @yield('head')
 
@@ -52,7 +54,7 @@
 
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img  src="{{ Auth::user()->usuImg }}" alt="" style="width:30px; border-radius:10%; max-height:20px;"> {{ Auth::user()->name }}  <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img  src="{{ Auth::user()->usuImg }}" alt="" style="width:30px; border-radius:10%; max-height:20px;"> {{ Auth::user()->name}} {{ Auth::user()->apellido}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="{{ url('/perfil') }}"><i class="fa fa-fw fa-user"></i>Perfil</a>
@@ -131,14 +133,8 @@
 
         <div id="page-wrapper">
                 <div class="pageheader">
-                <h2><i class="fa fa-home"></i> Inicio <span>SELECCIONE LAS OPCIONES PARA CREAR Y CARGAR UN NUEVO EVENTO</span></h2>
-                    <div class="breadcrumb-wrapper">
-                        <span class="label">Estás aquí : </span>
-                        <ol class="breadcrumb">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li class="active">Bandeja de entrada</li>
-                        </ol>
-                    </div>
+                <h2><i class="fa fa-home"></i> Inicio <span>ILUSTRE MUNICIPALIDAD DE PUYEHUE</span></h2>
+
                 </div>
   <div class="container-fluid">
      <div class="contentpanel">

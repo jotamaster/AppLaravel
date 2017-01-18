@@ -5,15 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Departamento;
+use Illuminate\Support\Facades\DB;
+use App\User;
 class DepartamentosController extends Controller
 {
 
 
   public function view(){
 
-    $departamentos = Departamento::all();
+
+    $departamentos = DB::table('departamentos')
+          ->join('users', 'departamentos.cargo', '=', 'users.id')
+          ->select('departamentos.nombre', 'departamentos.id', 'users.name as nombre_cargo', 'users.id as id_user')
+          ->get();
+
+
     return view('departamentos',compact('departamentos'));
   }
+
 
   public function create() {
       return view('createDepartamentos');

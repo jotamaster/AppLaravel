@@ -42,7 +42,7 @@
 </form>
   </div>
   <div class="col-md-12">
-    <h3>{{ Auth::user()->name}}</h3>
+    <h3>{{ Auth::user()->name}} {{ Auth::user()->apellido}}</h3>
   </div>
 
 </div>

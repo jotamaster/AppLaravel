@@ -30,7 +30,7 @@ return view('perfil');
             return redirect('perfil')->withErrors($validator);
         }
         else{
-            $name = str_random(30) . '-' . $request->file('image')->getClientOriginalName();
+            $name = str_random(20) . '-' . $request->file('image')->getClientOriginalName();
             $request->file('image')->move('usuImg', $name);
             $user = new User;
             $user->where('email', '=', Auth::user()->email)

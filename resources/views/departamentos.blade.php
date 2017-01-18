@@ -41,29 +41,29 @@
       </tr>
     </thead>
     <tbody>
-    @foreach($departamentos as $departamento)
-      <tr>
+      @foreach($departamentos as $departamento)
+         <tr>
 
-        <td>{{ $departamento->nombre}}</td>
-        <td>d</td>
-        <td>
-        <form class="deleteForm" method="POST" action="crudDepartamentos/edit/{{$departamento->id}}">
+           <td>{{ $departamento->nombre}}</td>
+           <td>{{$departamento->nombre_cargo}}</td>
+           <td>
+           <form class="deleteFom" method="POST" action="crudDepartamentos/edit/{{$departamento->id}}">
 
-      {{ csrf_field() }}
-        <input class="btn btn-warning" type="submit" value="edit">
-      </form>
-      </td>
+         {{ csrf_field() }}
+           <input class="btn btn-warning" type="submit" value="edit">
+         </form>
+         </td>
 
-        <td>
-        <form class="deleteForm" method="POST" action="crudDepartamentos/{{$departamento->id}}">
-      {{method_field('DELETE')}}
-      {{ csrf_field() }}
-        <input class="btn btn-danger" type="submit" value="Eliminar">
-      </form>
-      </td>
+           <td>
+           <form class="deleteForm" method="POST" action="crudDepartamentos/{{$departamento->id}}">
+         {{method_field('DELETE')}}
+         {{ csrf_field() }}
+           <input class="btn btn-danger" type="submit" value="Eliminar">
+         </form>
+         </td>
 
-      </tr>
-    @endforeach
+         </tr>
+       @endforeach
     </tbody>
   </table>
 </div>
