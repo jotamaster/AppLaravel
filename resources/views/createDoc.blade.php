@@ -19,7 +19,8 @@
         {{ session('success') }}
     </div>
   @endif
-  <form method="POST" action="{{ url('subirdoc') }}" class="col-md-10 col-md-offset-1 " enctype="multipart/form-data">
+
+    {!! Form::open(array('url'=>'subirdoc','method'=>'POST', 'files'=>true)) !!}
 
 
     @if(count($errors) > 0)
@@ -87,7 +88,7 @@
                   </ul>
               </div>
 
-              <form role="form">
+
                   <div class="tab-content">
                     <!--PASO 1  -->
                       <div class="tab-pane active" role="tabpanel" id="step1">
@@ -184,14 +185,17 @@
 
 
 
-
-
-                        <form action="/file-upload" class="dropzone">
-                          <div class="fallback">
-                            <input name="file" type="file" multiple />
-                          </div>
-                        </form>
-
+                          <div class="control-group">
+                            <div class="controls">
+                            {!! Form::file('images[]', array('multiple'=>true)) !!}
+                      	<p class="errors">{!!$errors->first('images')!!}</p>
+                      	@if(Session::has('error'))
+                      	<p class="errors">{!! Session::get('error') !!}</p>
+                      	@endif
+                           </div>
+                      </div>
+                      {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
+                      {!! Form::close() !!}
 
 
 
@@ -217,7 +221,7 @@
                       </div>
                       <div class="clearfix"></div>
                   </div>
-              </form>
+
           </div>
       </section>
      </div>

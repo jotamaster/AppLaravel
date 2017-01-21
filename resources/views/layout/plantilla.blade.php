@@ -109,7 +109,7 @@
 
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-signal"></i> Control de Turistas<span class=""></span></a>
+                            <a href="archivos" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-signal"></i>subir archivos<span class=""></span></a>
 
                         </li>
 

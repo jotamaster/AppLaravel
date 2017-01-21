@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 
+Route::get("archivos","ArchivosController@view");
+Route::post("archivos","ArchivosController@guardarArchivos");
+
+
 
 
 Route::get("search","DocumentoController@view");
@@ -27,6 +31,8 @@ Route::get('unidades/{id}','RecepcionController@getUnidad');
 // RUTAS SUBIR DOCUMENTOS------------------------------------------------
 Route::get('subirdoc','RecepcionController@view');
 Route::post('subirdoc','RecepcionController@store');
+Route::post('subirdoc','RecepcionController@guardarArchivos');
+
 
 
 // ----------------------------------------------------------------------
