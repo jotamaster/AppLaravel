@@ -45,8 +45,13 @@ class RecepcionController extends Controller
       }
     }
   // ---------------------------------------------------------------------------
+      public function maxid()
+      {
+        $maxIdDoc = DB::table('documentos')->max('id');
+        return ($maxIdDoc);
 
-  // ---------------------------------------------------------------------------
+      }
+      // ---------------------------------------------------------------------------
 
     public function store(Request $request) {
 
@@ -84,7 +89,7 @@ class RecepcionController extends Controller
               $responsable->direccion = $request->direccion;
               $responsable->correo = $request->correo;
               $responsable->save();
-          return redirect()->to('subirdoc')->with('success', 'Documento creado exitosamente') ;
+
 
     }catch (\Illuminate\Database\QueryException $e){
           $documento = new Documento;
@@ -95,39 +100,52 @@ class RecepcionController extends Controller
               $documento->tipoSolicitante = $request->tipoSolicitante;
               $documento->rut_responsable = $request->rutResponsable;
               $documento->save();
-              return redirect()->to('subirdoc')->with('success', 'Documento creado exitosamente') ;
+
         }
+
+        // getting all of the post data
+$files = Input::file('images');
+// Making counting of uploaded images
+$file_count = count($files);
+// start count how many uploaded
+$uploadcount = 0;
+
+if ($file_count == 0) {
+  Session::flash('success', 'Enviado Correctamente');
+  return Redirect::to('subirdoc');
+}
+
+else {
+  foreach($files as $file) {
+    $rules = array('file' => 'required|mimes:png,gif,jpeg,txt,pdf,doc,pptx,docx,ppt|max:500000'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+    $validator = Validator::make(array('file'=> $file), $rules);
+    if($validator->passes()){
+      $destinationPath = 'uploads';
+      $filename = str_random(10) . '-' .$file->getClientOriginalName();
+      $upload_success = $file->move($destinationPath, $filename);
+      $uploadcount ++;
+      $archivo = new Archivo();
+      $maxIdDoc = DB::table('documentos')->max('id');
+      $archivo->ruta = $destinationPath."/".$filename;
+      $archivo->nombre = $filename;
+      $archivo->id_documento = $maxIdDoc;
+      $archivo->save();
+    }
+  }
+  if($uploadcount == $file_count){
+    Session::flash('success', 'Enviado Correctamente');
+    return Redirect::to('subirdoc');
+  }
+  else {
+    return Redirect::to('subirdoc')->withInput()->withErrors($validator);
+  }
+}
+
+
+
       }
   // ---------------------------------------------------------------------------
   public function guardarArchivos() {
-     // getting all of the post data
-     $files = Input::file('images');
-     // Making counting of uploaded images
-     $file_count = count($files);
-     // start count how many uploaded
-     $uploadcount = 0;
-  
-       foreach($files as $file) {
-         $rules = array('file' => 'required|mimes:png,gif,jpeg,txt,pdf,doc,pptx,docx,ppt|max:500000'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
-         $validator = Validator::make(array('file'=> $file), $rules);
-         if($validator->passes()){
-           $destinationPath = 'uploads';
-           $filename = str_random(10) . '-' .$file->getClientOriginalName();
-           $upload_success = $file->move($destinationPath, $filename);
-           $uploadcount ++;
-           $archivo = new Archivo();
-           $archivo->ruta = $destinationPath."/".$filename;
-           $archivo->nombre = $filename;
-           $archivo->save();
-         }
-       }
-       if($uploadcount == $file_count){
-         Session::flash('success', 'Enviado Correctamente');
-         return Redirect::to('subirdoc');
-       }
-       else {
-         return Redirect::to('subirdoc')->withInput()->withErrors($validator);
-       }
 
 
    }

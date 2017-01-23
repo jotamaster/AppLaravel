@@ -31,7 +31,7 @@ Route::get('unidades/{id}','RecepcionController@getUnidad');
 // RUTAS SUBIR DOCUMENTOS------------------------------------------------
 Route::get('subirdoc','RecepcionController@view');
 Route::post('subirdoc','RecepcionController@store');
-Route::post('subirdoc','RecepcionController@guardarArchivos');
+
 
 
 

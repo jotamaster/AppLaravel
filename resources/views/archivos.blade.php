@@ -18,7 +18,8 @@
   </div>
 @endif
 
-{!! Form::open(array('url'=>'archivos','method'=>'POST', 'files'=>true)) !!}
+  <form method="POST" action="{{ url('archivos') }}" class="col-md-10 col-md-offset-1 " enctype="multipart/form-data">
+      	{{ csrf_field() }}
     <div class="control-group">
       <div class="controls">
       {!! Form::file('images[]', array('multiple'=>true)) !!}

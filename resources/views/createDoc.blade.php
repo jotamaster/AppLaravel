@@ -19,8 +19,7 @@
         {{ session('success') }}
     </div>
   @endif
-
-    {!! Form::open(array('url'=>'subirdoc','method'=>'POST', 'files'=>true)) !!}
+  <form method="POST" action="{{ url('subirdoc') }}" class="col-md-10 col-md-offset-1 " enctype="multipart/form-data">
 
 
     @if(count($errors) > 0)
@@ -166,7 +165,7 @@
                           </div>
                           <div class="col-md-6">
                               {!!Form::label('nombre', 'Correo')!!}
-                              {{ Form::input('email', 'correo', null, ['class' => 'form-control']) }}
+                              {{ Form::input('text', 'correo', null, ['class' => 'form-control']) }}
                           </div>
 
 
@@ -185,6 +184,9 @@
 
 
 
+
+
+
                           <div class="control-group">
                             <div class="controls">
                             {!! Form::file('images[]', array('multiple'=>true)) !!}
@@ -194,8 +196,8 @@
                       	@endif
                            </div>
                       </div>
-                      {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
-                      {!! Form::close() !!}
+                      {!! Form::submit('Enviar', array('class'=>'send-btn')) !!}
+                </form>
 
 
 
@@ -212,7 +214,7 @@
                               <li><button type="button" class="btn btn-default prev-step">Atras</button></li>
 
 
-                              <li><button type="button" class="btn btn-primary btn-info-full next-step">Listo</button></li>
+                              <li></li>
                           </ul>
                       </div>
                       <div class="tab-pane" role="tabpanel" id="complete">
@@ -229,8 +231,6 @@
 
 
 
-
-  </form>
 
 
 
