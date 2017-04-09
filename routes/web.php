@@ -31,10 +31,6 @@ Route::get('unidades/{id}','RecepcionController@getUnidad');
 // RUTAS SUBIR DOCUMENTOS------------------------------------------------
 Route::get('subirdoc','RecepcionController@view');
 Route::post('subirdoc','RecepcionController@store');
-
-
-
-
 // ----------------------------------------------------------------------
 
 
@@ -58,6 +54,11 @@ Route::put('crudDepartamentos/{id}', 'DepartamentosController@update');
 // ----------------------------------------------------------------------
 
 
+// RUTAS DASHBOARD-------------------------------------------------------
+Route::get('dashboard','DashboardController@view');
+Route::get('dashboard','DashboardController@numDoc');
+
+// ----------------------------------------------------------------------
 
 
 

@@ -29,6 +29,9 @@
     <script src="{{asset('js/fileinput.js')}}" type="text/javascript"></script>
       <script src="{{asset('js/dropzone.js')}}" type="text/javascript"></script>
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+
   @yield('head')
 
 
@@ -112,6 +115,10 @@
                             <a href="archivos" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-signal"></i>subir archivos<span class=""></span></a>
 
                         </li>
+                        <li class="dropdown">
+                            <a href="dashboard" class="dropdown-toggle" data-toggle=""><i class="fa fa-fw fa-dashboard"></i>dashboard<span class=""></span></a>
+
+                        </li>
 
 
                          <li class="dropdown">
@@ -187,6 +194,9 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/moment-with-locales.js')}}"></script>
     <script src="{{asset('js/bootstrap-datetimepicker.js')}}"></script>
+        <script src="{{asset('select2-4.0.3/dist/js/select2.js')}}" type="text/javascript"> </script>
+      
+
 
 
 

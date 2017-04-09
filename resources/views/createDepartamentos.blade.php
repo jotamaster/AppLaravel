@@ -15,7 +15,7 @@
 <div class="col-md-offset-1 col-md-10 box">
 
 
-<form method="POST" action="{{ url('crudDepartamentos') }}" class="col-md-4 col-md-offset-4">
+<form method="POST" action="{{ url('crudDepartamentos') }}" class="col-md-8 col-md-offset-2">
 	<h3>Agregar Departamento</h3>
 
   @if(count($errors) > 0)
@@ -36,12 +36,24 @@
     <label for="exampleInputEmail1">Nombre</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
   </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Encargado</label>
+    <br>
+    {!!Form::select('encargado' , $jefes ,null,['id'=>'jefes' ,'class'=>'form-control'])!!}
+  </div>
+
 
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#jefes").select2();
+});
+</script>
 
 
 

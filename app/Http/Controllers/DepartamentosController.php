@@ -10,10 +10,8 @@ use App\User;
 class DepartamentosController extends Controller
 {
 
-
+  // -------------------------------------------------------------------------------------------------------------
   public function view(){
-
-
     $departamentos = DB::table('departamentos')
           ->join('users', 'departamentos.cargo', '=', 'users.id')
           ->select('departamentos.nombre', 'departamentos.id', 'users.name as nombre_cargo', 'users.id as id_user')
@@ -23,21 +21,29 @@ class DepartamentosController extends Controller
     return view('departamentos',compact('departamentos'));
   }
 
-
+  // -------------------------------------------------------------------------------------------------------------
   public function create() {
-      return view('createDepartamentos');
+
+       
+       $jefes = User::select(DB::raw("CONCAT(name,' ',apellido) AS nombre"),'id')->pluck('nombre', 'id');
+
+
+      return view('createDepartamentos',compact('jefes'));
   }
+
+  // -------------------------------------------------------------------------------------------------------------
   public function store(Request $request) {
         $this->validate($request, [
             'nombre' => 'required|max:40',
-
         ]);
 
-        $data = request()->all();
-
-        $departamento = Departamento::create($data);
+        $departamento = new Departamento;
+        $departamento->nombre = $request->nombre;
+        $departamento->cargo = $request->encargado;
+        $departamento->save();
         return redirect()->to('crudDepartamentos')->with('success', 'Departamento creado exitosamente') ;
     }
+      // -------------------------------------------------------------------------------------------------------------
 
     public function destroy($id) {
         try {
@@ -52,7 +58,7 @@ class DepartamentosController extends Controller
     }
     }
 
-
+  // -------------------------------------------------------------------------------------------------------------
 
 
 
@@ -62,7 +68,7 @@ class DepartamentosController extends Controller
         $departamentos = Departamento::find($id);
         return view('editDepartamentos', ['departamento' => $departamentos]);
     }
-
+  // -------------------------------------------------------------------------------------------------------------
     public function update($id, Request $request) {
   $nombre = request()->input('nombre');
 
@@ -75,6 +81,6 @@ class DepartamentosController extends Controller
   $departamento->save();
   return redirect()->to('crudDepartamentos');
 }
-
+  // -------------------------------------------------------------------------------------------------------------
 
 }
