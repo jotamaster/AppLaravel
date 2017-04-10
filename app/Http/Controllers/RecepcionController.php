@@ -32,7 +32,7 @@ class RecepcionController extends Controller
       $unidades = Unidad::all();
       $documentos = Documento::all();
 
-      return view('createdoc', compact('departamentos','unidades','documentos'));
+      return view('createDoc', compact('departamentos','unidades','documentos'));
     }
 
   // ---------------------------------------------------------------------------
